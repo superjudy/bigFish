@@ -1,0 +1,13 @@
+<div *ngFor="let product of products" class="col-md-4 col-lg-4 col-sm-4">
+  <div class="thumbnail">
+    <img src={{product.img}} alt=""/>
+    <div class="caption">
+      <h4 class="pull-right">{{product.title}}</h4>
+      <h4><a href="javascript:;">{{product.price}}元</a></h4>
+      <p>{{product.desc}}</p>
+    </div>
+    <div>
+      <stars></stars>
+    </div>
+  </div>
+</div>
