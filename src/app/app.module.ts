@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -8,6 +10,19 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { ProductComponent } from './product/product.component';
 import { FooterComponent } from './footer/footer.component';
 import { StarsComponent } from './stars/stars.component';
+import { ProductDetialComponent } from './product-detial/product-detial.component';
+import { HomeComponent } from './home/home.component';
+
+const routeConfig:Routes = [
+  {
+    path:"",
+    component:HomeComponent
+  },
+  {
+    path:"product/:prodTitle",
+    component:ProductDetialComponent
+  }
+]
 
 @NgModule({
   declarations: [
@@ -17,10 +32,13 @@ import { StarsComponent } from './stars/stars.component';
     CarouselComponent,
     ProductComponent,
     FooterComponent,
-    StarsComponent
+    StarsComponent,
+    ProductDetialComponent,
+    HomeComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(routeConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]
