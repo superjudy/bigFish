@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { product, ProductService, comment } from '../share/product.service';
 
 @Component({
   selector: 'product-detial',
@@ -8,12 +9,18 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProductDetialComponent implements OnInit {
 
-  productTitle:string;
+  product:product;
+  comments:comment[];
 
-  constructor(private routeInfo:ActivatedRoute) { }
+  constructor(
+    private routeInfo:ActivatedRoute,
+    private productService:ProductService
+  ) { }
 
   ngOnInit() {
-    this.productTitle = this.routeInfo.snapshot.params["prodTitle"];
+    let productId:number = this.routeInfo.snapshot.params["productId"];
+    this.product = this.productService.getProduct( productId );
+    this.comments = this.productService.getCommentForProductId( productId );
   }
 
 }

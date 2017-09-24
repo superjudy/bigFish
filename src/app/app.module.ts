@@ -12,6 +12,7 @@ import { FooterComponent } from './footer/footer.component';
 import { StarsComponent } from './stars/stars.component';
 import { ProductDetialComponent } from './product-detial/product-detial.component';
 import { HomeComponent } from './home/home.component';
+import { ProductService } from "./share/product.service";
 
 const routeConfig:Routes = [
   {
@@ -19,7 +20,7 @@ const routeConfig:Routes = [
     component:HomeComponent
   },
   {
-    path:"product/:prodTitle",
+    path:"product/:productId",
     component:ProductDetialComponent
   }
 ]
@@ -40,7 +41,7 @@ const routeConfig:Routes = [
     BrowserModule,
     RouterModule.forRoot(routeConfig)
   ],
-  providers: [],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

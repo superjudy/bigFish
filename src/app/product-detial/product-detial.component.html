@@ -1,4 +1,25 @@
-<div>
+<div class="thumbnail">
   <img src="./assets/img/1.png" alt=""/>
-  <h4 style="padding:25px 0 133px;">{{productTitle}}</h4>
+  <div>
+    <h4 class="pull-right">{{ product.price }}元</h4>
+    <h4>{{product.title}}</h4> 
+    <p>{{ product.desc }}</p>
+  </div>
+  <div>
+    <p class="pull-right">共 {{ comments.length }} 条评论</p>
+    <p>
+      <stars [rating] = "product.rating"></stars>
+    </p>
+  </div>
+</div>
+
+<div class="well">
+  <div class="row" *ngFor="let comment of comments">
+    <div class="col-md-12">
+      <stars [rating] = "comment.rating"></stars>
+      <span>{{ comment.user }}</span>
+      <span class="pull-right">{{ comment.timestap }}</span>
+      <p>{{ comment.contant }}</p>
+    </div>
+  </div>
 </div>
